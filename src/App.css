@@ -1,3 +1,6 @@
+* {
+  margin: 0;
+}
 .App {
   text-align: center;
 }
@@ -14,25 +17,65 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.Card {
+  width: 50%;
+  height: 50%;
+  padding: 30px 30px;
+  border: solid 2px green;
+  border-radius: 50px;
+  background-color: #ffffff;
+  color: black;
+}
+
+.ContainerButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.NextButton {
+  border-radius: solid 50px transparent;
+  border-color: none;
+  border-top-color: none;
+  border-right-color: none;
+  border-bottom-color: none;
+  border-left-color: none;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+blockquote {
+  margin-bottom: 50px;
+  font-size: 23px;
+  quotes: "\201C""\201D""\00AB""\0027";
+}
+
+blockquote:before {
+  content: open-quote;
+}
+blockquote:after {
+  content: close-quote;
 }
