@@ -43,9 +43,6 @@
 }
 
 .NextButton {
-  /*margin-right: 50px;
-  margin-left: 50px;
-  margin-top: 10px;*/
   border-radius: 10px;
   color: #00000090;
   font-weight: bold;
@@ -53,9 +50,6 @@
 
 .TwitterButton {
   border-radius: 10px;
-  /*margin-right: 50px;
-  margin-left: 50px;
-  margin-top: 10px;*/
   background-color: #ebe1e190;
 }
 
