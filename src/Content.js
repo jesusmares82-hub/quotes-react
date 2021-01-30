@@ -7,14 +7,10 @@ const Content = () => {
   const [myQuote, setMyQuote] = useState(myQuotes.quotes[indexRandom].quote);
   const [myAuthor, setMyAuthor] = useState(myQuotes.quotes[indexRandom].author);
 
-  console.log(myQuote);
   const urlQuote = myQuotes.quotes[indexRandom].quote.split(" ").join("%20");
-  console.log(urlQuote);
   const urlQuote2 = urlQuote.split('"').join("");
-  console.log(urlQuote2);
   const urlQuote3 = "https://twitter.com/intent/tweet?text=";
   const urlFinal = urlQuote3 + urlQuote2;
-  console.log(urlFinal);
   const [myTweet, setMyTweet] = useState(urlFinal);
 
   const color = [
@@ -57,14 +53,10 @@ const Content = () => {
     setMyQuote(myQuotes.quotes[indexRandom].quote);
     setMyAuthor(myQuotes.quotes[indexRandom].author);
 
-    console.log(myQuote);
     const urlQuote = myQuotes.quotes[indexRandom].quote.split().join("%20");
-    console.log(urlQuote);
     const urlQuote2 = urlQuote.split('"').join("");
-    console.log(urlQuote2);
     const urlQuote3 = "https://twitter.com/intent/tweet?text=";
     const urlFinal = urlQuote3 + urlQuote2;
-    console.log(urlFinal);
     setMyTweet(urlFinal);
   };
 
@@ -74,15 +66,14 @@ const Content = () => {
         <CardBody>
           <Data>{myQuote}</Data>
         </CardBody>
-        <span>{myAuthor}</span>
+        <Data>{myAuthor}</Data>
         <ContainerButtons className="ContainerButtons">
-          <NextButton className="NextButton">
+          <NextButton className="TwitterButton">
             <a
               href={myTweet}
               target="_blank"
               rel="noopener noreferrer"
               className="twitter-share-button"
-              data-text={myQuotes.quotes[0].quote}
               data-lang="es"
               data-show-count="true"
             >
@@ -92,9 +83,10 @@ const Content = () => {
           <NextButton
             className="NextButton"
             onClick={handleNextQuote}
-            style={{ backgroundColor: myColor }}
+            style={{
+              backgroundColor: myColor,
+            }}
           >
-            {" "}
             Next Quote
           </NextButton>
         </ContainerButtons>
