@@ -3,14 +3,14 @@ import React, { useState } from "react";
 
 const Content = () => {
   const myQuotes = JSON.parse(JSON.stringify(quotes));
-  const indexRandom = Math.round(Math.random() * 101);
+  const indexRandom = Math.round(Math.random() * (myQuotes.quotes.length - 1));
   const [myQuote, setMyQuote] = useState(myQuotes.quotes[indexRandom].quote);
   const [myAuthor, setMyAuthor] = useState(myQuotes.quotes[indexRandom].author);
 
   const urlQuote = myQuotes.quotes[indexRandom].quote.split(" ").join("%20");
-  const urlQuote2 = urlQuote.split('"').join("");
-  const urlQuote3 = "https://twitter.com/intent/tweet?text=";
-  const urlFinal = urlQuote3 + urlQuote2;
+  const urlAuthor = myQuotes.quotes[indexRandom].author.split(" ").join("%20");
+  const urlTweet = "https://twitter.com/intent/tweet?text=";
+  const urlFinal = urlTweet + urlQuote + "%20" + urlAuthor;
   const [myTweet, setMyTweet] = useState(urlFinal);
 
   const color = [
@@ -49,14 +49,18 @@ const Content = () => {
   const handleNextQuote = (event) => {
     const indexColor = Math.round(Math.random() * (color.length - 1));
     setMyColor(color[indexColor]);
-    const indexRandom = Math.round(Math.random() * 101);
+    const indexRandom = Math.round(
+      Math.random() * (myQuotes.quotes.length - 1)
+    );
     setMyQuote(myQuotes.quotes[indexRandom].quote);
     setMyAuthor(myQuotes.quotes[indexRandom].author);
 
-    const urlQuote = myQuotes.quotes[indexRandom].quote.split().join("%20");
-    const urlQuote2 = urlQuote.split('"').join("");
-    const urlQuote3 = "https://twitter.com/intent/tweet?text=";
-    const urlFinal = urlQuote3 + urlQuote2;
+    const urlQuote = myQuotes.quotes[indexRandom].quote.split(" ").join("%20");
+    const urlAuthor = myQuotes.quotes[indexRandom].author
+      .split(" ")
+      .join("%20");
+    const urlTweet = "https://twitter.com/intent/tweet?text=";
+    const urlFinal = urlTweet + urlQuote + "%20" + urlAuthor;
     setMyTweet(urlFinal);
   };
 
@@ -64,9 +68,11 @@ const Content = () => {
     <Container className="Container" style={{ backgroundColor: myColor }}>
       <Card className="Card">
         <CardBody>
-          <Data>{myQuote}</Data>
+          <Data>
+            <i className="fas fa-quote-left"></i> {myQuote}
+          </Data>
         </CardBody>
-        <Data>{myAuthor}</Data>
+        <Data>{"-" + myAuthor}</Data>
         <ContainerButtons className="ContainerButtons">
           <NextButton className="TwitterButton">
             <a
