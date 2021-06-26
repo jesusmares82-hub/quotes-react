@@ -14,34 +14,34 @@ const Content = () => {
   const [myTweet, setMyTweet] = useState(urlFinal);
 
   const color = [
-    "#ff9d72",
-    "#999b84",
-    "#83a95c",
-    "#ff4646",
-    "#c9cbff",
-    "#fdb827",
-    "#98acf8",
-    "#b088f9",
-    "#7FFF00",
-    "#00FFFF",
-    "#DEB887",
-    "#8FBC8F",
-    "#00CED1",
-    "#00BFFF",
-    "#DCDCDC",
-    "#FFD700",
-    "#ff98da",
-    "#87a8d0",
-    "#2eac6d",
-    "#c3b4d2",
-    "#e16262",
-    "#3e31ae",
-    "#fbd400",
-    "#40a798",
-    "#f6e97f",
-    "#00e0ff",
-    "#8e9fe6",
-    "#a2792f",
+    "#185ADB",
+    "#FF7600",
+    "#C68B59",
+    "#39A2DB",
+    "#5C33F6",
+    "#3B14A7",
+    "#5F939A",
+    "#01937C",
+    "#3EDBF0",
+    "#FFC107",
+    "#BF1363",
+    "#2940D3",
+    "#FB9300",
+    "#FF96AD",
+    "#00EAD3",
+    "#BB371A",
+    "#185ADB",
+    "#E93B81",
+    "#FC92E3",
+    "#C449C2",
+    "#064420",
+    "#F98404",
+    "#907FA4",
+    "#4A503D",
+    "#344FA1",
+    "#04009A",
+    "#9F5F80",
+    "#FF5200",
   ];
   const indexColor = Math.round(Math.random() * color.length);
   const [myColor, setMyColor] = useState(color[indexColor]);
@@ -65,7 +65,7 @@ const Content = () => {
   };
 
   return (
-    <Container className="Container" style={{ backgroundColor: myColor }}>
+    <Container className="Container" style={{ backgroundImage: `linear-gradient(to right, #4880EC, ${myColor})` }}>
       <Card className="Card">
         <CardBody>
           <Data>
@@ -91,6 +91,8 @@ const Content = () => {
             onClick={handleNextQuote}
             style={{
               backgroundColor: myColor,
+
+               opacity: .6,
             }}
           >
             Next Quote
